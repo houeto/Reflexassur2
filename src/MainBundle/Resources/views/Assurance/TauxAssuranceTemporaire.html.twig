@@ -1,0 +1,76 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block automobile %}{% endblock %}
+    {% block action %}{% endblock %}
+     {% block titre %}Gestion des Taux Assurances temporaires{% endblock %}
+      
+         <form {{form_enctype(form)}} method="post" style=" margin: 25px 25px; ">
+            <div class="col-md-4">          
+                {{ form_label(form.bornInf) }}
+                {{ form_widget(form.bornInf) }}
+            </div>
+            <div class="col-md-4">          
+                {{ form_label(form.bornSup) }}
+                {{ form_widget(form.bornSup) }}
+            </div>
+            <div class="col-md-4">          
+                {{ form_label(form.tauxDouble) }}
+                {{ form_widget(form.tauxDouble) }}
+                {{ form_widget(form) }}
+            </div>
+           <div class="col-md-12" align='center' style="margin-top: 15px;">
+                <button class="btn btn-success" type="submit">Ajouter un taux assurance temporaire</button>
+           </div>
+        </form>
+        <div class="col-md-12" style=" margin-bottom: 50px; margin-top: 50px; ">   
+           
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10%">N°</th>
+                    <th style="width: 20%">Borne inférieure</th>
+                    <th style="width: 20%">Borne supérieure</th>
+                    <th style="width: 20%">Taux</th>
+                    <th style="width: 30%;text-align:right;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for t in tauxassurancetemporaires%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{t.bornInf}}</td>
+                        <td>{{t.bornSup}}</td>
+                        <td>{{t.tauxDouble}}</td>
+                        <td style="text-align:right;">
+                                <a href="{{path('modifier_taux_assurance_temporaire', {'id': t.id})}}" class="btn btn-default" title="Modifier"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a data-toggle="modal" href="#supprimer_taux_assurance_temporaire{{t.id}}" class="btn btn-default" title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+                                <div class="modal" id="supprimer_taux_assurance_temporaire{{t.id}}" style="margin-top: 60px">
+                                    <div class="modal-dialog" style="max-width: 400px">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" style="text-align: center">Confirmer la suppression</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p style="text-align: center; font-size:15px;">Voulez vous vraiment supprimer la ligne sélectionnée ?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{path('supprimer_taux_assurance_temporaire', {'id': t.id})}}" class="btn btn-danger">Supprimer</a>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+</div>
+	
+ {% endblock %}
+
+

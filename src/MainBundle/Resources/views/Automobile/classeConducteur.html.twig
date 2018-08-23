@@ -1,0 +1,69 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block action %}{% endblock %}
+    {% block titre %} Gestion des Classes Conducteurs{% endblock %}
+         <form {{form_enctype(form)}} method="post" style=" margin: 25px 25px; ">
+            <div class="col-md-5">
+                  {{ form_label(form.libelle) }}
+                  {{ form_widget(form.libelle) }}
+            </div>   
+             <div class="col-md-5">
+                  {{ form_label(form.description) }}
+                  {{ form_widget(form.description) }}
+                  {{ form_widget(form) }}
+            </div>   
+             <div class="col-md-2" style="margin-top: 25px;">
+                  <button class="btn btn-success" type="submit">Enregistrer</button>
+             </div>
+        </form>
+        <div class="col-md-12" style=" margin-bottom: 50px; margin-top: 50px; ">
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10%">N°</th>
+                    <th style="width: 30%">Libellé</th>
+                     <th style="width: 30%">Description</th>
+                    <th style="width: 30%; text-align:right;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for c in classes%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{c.libelle}}</td>
+                        <td>{{c.description}}</td>
+                        <td style="text-align:right;">
+                                <a href="{{path('modifier_classeconducteur', {'id': c.id})}}" class="btn btn-default" title="Modifier"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a data-toggle="modal" href="#supprimer-classeconducteur{{c.id}}" class="btn btn-default" title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+                                <div class="modal" id="supprimer-classeconducteur{{c.id}}" style="margin-top: 60px">
+                                    <div class="modal-dialog" style="max-width: 400px">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" style="text-align: center">Confirmer la suppression</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p style="text-align: center; font-size:15px;">Voulez vous vraiment supprimer cette classe de conducteur?</p>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{path('supprimer_classeconducteur', {'id': c.id})}}" class="btn btn-danger">Supprimer</a>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+</div>
+
+	
+ {% endblock %}
+

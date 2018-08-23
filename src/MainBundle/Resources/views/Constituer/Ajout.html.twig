@@ -1,0 +1,37 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block automobile %}{% endblock %}
+    {% block titre %} Ajout{% endblock %}
+        <form {{form_enctype(form)}} method="post" style=" margin: 25px 25px; ">
+             <div class="col-md-6">
+                  {{ form_label(form.dateDebut) }}
+                  {{ form_widget(form.dateDebut) }}
+                  
+                  {{ form_label(form.PoliceAssurance) }}
+                  {{ form_widget(form.PoliceAssurance) }}
+             </div>          
+              <div class="col-md-6">
+                  {{ form_label(form.dateFin) }}
+                  {{ form_widget(form.dateFin) }}
+                  
+                  {{ form_label(form.Vehicule) }}
+                  {{ form_widget(form.Vehicule) }}
+                     {{ form_widget(form) }}
+             </div>
+              
+            <div class="col-md-12" align='center' style="margin-top:25px; margin-bottom: 25px;">
+               <button class="btn btn-success" type="submit">Enregistrer</button>
+            </div>
+  
+            <a href="{{ path('constituer') }}">Retour</a>
+              
+        </form>
+              
+         
+ {% endblock %}
+
+

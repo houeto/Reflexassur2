@@ -1,0 +1,80 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block automobile %}{% endblock %}
+    {% block titre %} Garantir{% endblock %}
+       <form {{form_enctype(form)}} method="post" style=" margin: 25px 25px; ">
+             <div class="col-md-5">
+                  {{ form_label(form.compagnie) }}
+                  {{ form_widget(form.compagnie) }}
+                  
+                  {{ form_label(form.typeAssurance) }}
+                  {{ form_widget(form.typeAssurance) }}
+             </div>          
+              <div class="col-md-5">
+                  {{ form_label(form.garantie) }}
+                  {{ form_widget(form.garantie) }}
+                  
+                  {{ form_label(form.policeAssurance) }}
+                  {{ form_widget(form.policeAssurance) }}
+                  
+                    {{ form_widget(form) }}
+             </div>
+              <div class="col-md-2" style="margin-top: 25px;">
+                  <button class="btn btn-success" type="submit">Enregistrer</button>
+             </div>
+            
+        </form>
+          <div class="col-md-12" style=" margin-bottom: 50px; margin-top: 50px; ">
+           
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 20%">N°</th>
+                    {#<th style="width: 20%">Compagnie</th>#}
+                    <th style="width: 20%">Type assurance</th>
+                    <th style="width: 20%">Garantie</th>
+                    <th style="width: 20%">Police d'assurance</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for g in garantir%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        {#<td> {%if g.compagnie%}{{g.compagnie.nom}}{%else%}{%endif%}</td>#}
+                        <td> {%if g.typeAssurance%}{{g.typeAssurance.libelle}}{%else%}{%endif%}</td>
+                        <td> {%if g.garantie%}{{g.garantie.libelle}}{%else%}{%endif%}</td>
+                        <td> {%if g.policeAssurance%}{{g.policeAssurance.nomAssur}}{%else%}{%endif%}</td>
+                        <td style="text-align:right;">
+                                <a href="{{path('modifier_garantir', {'id': g.id})}}" class="btn btn-default" title="Modifier"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a data-toggle="modal" href="#supprimer_garantir{{g.id}}" class="btn btn-default" title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+                                <div class="modal" id="supprimer_garantir{{g.id}}" style="margin-top: 60px">
+                                    <div class="modal-dialog" style="max-width: 400px">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" style="text-align: center">Confirmer la suppression</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p style="text-align: center; font-size:15px;">Voulez vous vraiment supprimer la ligne sélectionnée ?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{path('supprimer_garantir', {'id': g.id})}}" class="btn btn-danger">Supprimer</a>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+</div>
+	
+ {% endblock %}
+
+

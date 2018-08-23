@@ -1,0 +1,145 @@
+
+{{
+    menu([
+        {
+            route: 'barreau_homepage',
+            icon: 'fa fa-home',
+            id: 'home',
+            text: 'Accueil'
+        },
+        {
+            route: 'barreau_agenda',
+            icon: 'fa fa-calendar',
+            text: 'Agenda',
+            id: 'agenda'
+        },
+        {
+            route: 'barreau_edit',
+            icon: 'fa fa-user',
+            id: ['identity', 'domiciliation', 'statuspro', 'exopro', 'signature', 'insurance', 'protection', 'commission', 'ecu', 'other', 'photo'],
+            text: 'Fiche de renseignements',
+            children: [
+                {
+                    route: 'barreau_edit',
+                    text: 'Identité unique',
+                    id: 'identity'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'domiciliation' },
+                    text: 'Domiciliation',
+                    id: 'domiciliation'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'statuspro' },
+                    text: 'Statut professionnel',
+                    id: 'statuspro'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'exopro' },
+                    text: 'Mode d\'exercice de la profession',
+                    id: 'exopro'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'signature' },
+                    text: 'Signature et Cachet',
+                    id: 'signature'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'insurance' },
+                    text: 'Assurance professionnelle',
+                    id: 'insurance'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: { type: 'protection' },
+                    text: 'Caisse de protection sociale du Barreau',
+                    id: 'protection'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: {type: 'commission'},
+                    text: 'Commission et groupes de travail du Barreau',
+                    id: 'commission'
+                },
+                {
+                    route: 'barreau_edit',
+                    params: {type: 'ecu'},
+                    text: 'En cas d\'urgence',
+                    id: 'ecu'
+                },
+                {
+                    route: 'barreau_edit_other',
+                    text: 'Autres renseignements',
+                    id: 'other'
+                },
+                {
+                    route: 'barreau_edit_photo',
+                    text: 'Photo et couverture',
+                    id: 'photo'
+                }
+            ]
+        },
+        {
+            route: 'barreau_dossiers',
+            icon: 'fa fa-folder',
+            text: 'Dossiers',
+            id: 'dossier'
+        },
+        {
+            route: 'barreau_formulaire',
+            icon: 'fa fa-file',
+            text: 'Formulaire',
+            id: 'formulaire'
+        },
+        {
+            route: 'barreau_acte',
+            icon: 'fa fa-file-archive-o',
+            text: 'Actes d\'avocats',
+            id: 'actes'
+        },
+        {
+            route: 'barreau_commissions_list',
+            icon: 'fa fa-book',
+            text: 'Commissions d\'office',
+            id: 'commissions'
+        },
+        {
+            icon: 'fa fa-book',
+            text: 'CARPA',
+            id: 'carpa-account',
+            children: [
+                {
+                    route: 'barreau_carpe_payment_requests',
+                    text: 'Demandes de paiements'
+                },
+                {
+                    route: 'barreau_carpa_transactions',
+                    text: 'Mes dépôts'
+                }
+            ]
+        },
+        {
+            route: 'barreau_document',
+            icon: 'fa fa-book',
+            text: 'Documentations',
+            id: 'documents'
+        },
+        {
+            route: 'barreau_info',
+            icon: 'fa fa-info',
+            text: 'Informations générales',
+            id: 'infos'
+        },
+        {
+            route: 'barreau_demande',
+            icon: 'fa fa-question',
+            text: 'Requêtes et demandes',
+            id: 'request'
+        }
+    ], null, 'nav main-menu', type)
+}}

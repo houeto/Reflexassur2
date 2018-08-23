@@ -1,0 +1,33 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block automobile %}{% endblock %}
+    {% block titre %} Modification{% endblock %}
+    <div>
+        <div id="partner" class="container-fluid no-padding partner">
+            <div class="container" style="background-color: white; padding: 25px 25px;">
+               <div class="col-md-12 col-sm-12">
+                <div class="col-md-2 col-sm-2"></div>
+                <div class="col-md-8 col-sm-8">
+                    <form {{form_enctype(form)}} method="post">
+                    {{ form_widget(form) }}
+                    <br/>
+                    <div align='center'>
+                       <button class="btn btn-success" type="submit">Enregistrer</button>
+                    </div>
+                    <br/>
+                    <a href="{{ path('constituer') }}">Retour</a>
+              
+            </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+         
+ {% endblock %}
+
+

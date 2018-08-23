@@ -1,0 +1,102 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block action %}{% endblock %}
+    {% block titre %} Modification de véhicule{% endblock %}
+       
+            <form {{form_enctype(form)}} method="post"  style=" margin: 25px 25px; ">
+         <div class="col-md-6">
+                  {{ form_label(form.categorieVehicule) }}
+                  {{ form_widget(form.categorieVehicule) }}
+                  
+                {{ form_label(form.numImmat) }}
+                {{ form_widget(form.numImmat) }}
+                
+                {{ form_label(form.genre) }}
+                {{ form_widget(form.genre) }}
+                
+                {{ form_label(form.nbrePlaceHorsCabine) }}
+                {{ form_widget(form.nbrePlaceHorsCabine) }}
+                
+                {{ form_label(form.puissance) }}
+                {{ form_widget(form.puissance) }}
+                
+                {{ form_label(form.ptac) }}
+                {{ form_widget(form.ptac) }}
+                
+                {{ form_label(form.pv) }}
+                {{ form_widget(form.pv) }}
+                
+                {{ form_label(form.numChassis) }}
+                {{ form_widget(form.numChassis) }}
+                
+                {{ form_label(form.valven) }}
+                {{ form_widget(form.valven) }}
+                
+                {{ form_label(form.gpsgsm) }}
+                {{ form_widget(form.gpsgsm) }}
+            
+                {{ form_label(form.condhab) }}
+                {{ form_widget(form.condhab) }}
+        </div>          
+         <div class="col-md-6">
+             {{ form_label(form.modele) }}
+             {{ form_widget(form.modele) }}
+             
+            {{ form_label(form.datePremiereMiseCir) }}
+            {{ form_widget(form.datePremiereMiseCir) }}
+            
+            {{ form_label(form.energie) }}
+            {{ form_widget(form.energie) }}
+            
+             {{ form_label(form.carrosserie) }}
+             {{ form_widget(form.carrosserie) }}
+                
+            {{ form_label(form.nbrePlaces) }}
+            {{ form_widget(form.nbrePlaces) }}
+
+            {{ form_label(form.puissanceReelle) }}
+            {{ form_widget(form.puissanceReelle) }}
+            
+            {{ form_label(form.chargeUtile) }}
+            {{ form_widget(form.chargeUtile) }}
+            
+            
+            {{ form_label(form.numSerie) }}
+            {{ form_widget(form.numSerie) }}
+            
+            {{ form_label(form.valneu) }}
+            {{ form_widget(form.valneu) }}
+            
+            {{ form_label(form.lieuGarage) }}
+            {{ form_widget(form.lieuGarage) }}
+            
+            {{ form_label(form.tarif) }}
+            {{ form_widget(form.tarif) }}
+                
+               {{ form_widget(form) }}
+        </div>
+         <div align='center'>
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+            </div>
+            <br/>
+        <a href="{{ path('vehicule') }}">Retour</a>      
+                   
+              
+      </form>
+    
+<script>
+    function isNumberKey(evt) {
+       var charCode = (evt.which) ? evt.which : event.keyCode;
+            if (charCode !== 44 && charCode > 31 && (charCode < 48 || charCode > 57) || charCode === 44) {
+                return false;
+            }
+            return true;
+    }
+</script>
+ {% endblock %}
+
+

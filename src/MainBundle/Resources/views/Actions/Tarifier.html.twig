@@ -1,0 +1,102 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block automobile %}{% endblock %}
+    {% block titre %} Tarifier{% endblock %}
+        <div id="partner" class="container-fluid no-padding partner" style="background-color: white;">
+        <div class="container" style="background-color: white;">
+            <div class="col-md-1 col-sm-1"></div>
+           <div class="col-md-12 col-sm-12">
+            <form {{form_enctype(form)}} method="post">
+             <div class="col-md-5">
+                  {{ form_label(form.montantBaseGarantie) }}
+                  {{ form_widget(form.montantBaseGarantie) }}
+                  
+                  {{ form_label(form.zone_circulation) }}
+                  {{ form_widget(form.zone_circulation) }}
+                  
+                  {{ form_label(form.categorie_vehicule) }}
+                  {{ form_widget(form.categorie_vehicule) }}
+             </div>          
+              <div class="col-md-5">
+                  {{ form_label(form.puissance_fiscale) }}
+                  {{ form_widget(form.puissance_fiscale) }}
+                  
+                  {{ form_label(form.classe_conducteur) }}
+                  {{ form_widget(form.classe_conducteur) }}
+                  
+                  {{ form_label(form.statutSocioProfessionnel) }}
+                  {{ form_widget(form.statutSocioProfessionnel) }}
+                    {{ form_widget(form) }}
+             </div>
+              <div class="col-md-2" style="margin-top: 25px;">
+                  <button class="btn btn-success" type="submit">Enregistrer</button>
+             </div>
+            
+        </form>
+              <div class="col-md-12" style=" margin-bottom: 50px; margin-top: 50px; ">
+           <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 5%">N°</th>
+                    <th style="width: 15%">Montant de base</th>
+                    <th style="width: 15%">Puissance fiscale</th>
+                    <th style="width: 15%">Zone circulation</th>
+                    <th style="width: 15%">Categorie véhicule</th>
+                    <th style="width: 15%">Classe conducteur</th>
+                    <th style="width: 15%">Satut SP</th>
+                    <th style="width: 5%;text-align:right;">Action</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {%for t in tarifiers%}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{t.montantBaseGarantie}}</td>
+                        <td>{%if t.PuissanceFiscale%}{{t.PuissanceFiscale.libelle}}{%else%}{%endif%}</td>
+                        <td>{%if t.ZoneCirculation%}{{t.ZoneCirculation.libelle}}{%else%}{%endif%}</td>
+                         <td>{%if t.CategorieVehicule%}{{t.CategorieVehicule.libelle}}{%else%}{%endif%}</td>
+                        <td>{%if t.ClasseConducteur%}{{t.ClasseConducteur.libelle}}{%else%}{%endif%}</td>
+                         <td>{%if t.StatutSocioProfessionnel%}{{t.StatutSocioProfessionnel.libelle}}{%else%}{%endif%}</td>
+                        
+                        
+                        <td style="text-align:right;">
+                                <a href="{{path('modifier_tarifier', {'id': t.id})}}" class="btn btn-default" title="Modifier"><i class="glyphicon glyphicon-edit"></i></a>
+                                <a data-toggle="modal" href="#supprimer-entreprise{{t.id}}" class="btn btn-default" title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+                                <div class="modal" id="supprimer-entreprise{{t.id}}" style="margin-top: 60px">
+                                    <div class="modal-dialog" style="max-width: 400px">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title" style="text-align: center">Confirmer la suppression</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p style="text-align: center; font-size:15px;">Voulez vous vraiment effectuer cette suppression?</p>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="{{path('supprimer_tarifier', {'id': t.id})}}" class="btn btn-danger">Supprimer</a>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+ </div>
+              </div>
+<div class="col-md-1 col-sm-1"></div>
+</div>
+ </div>
+    </div>
+	
+ {% endblock %}
+
+

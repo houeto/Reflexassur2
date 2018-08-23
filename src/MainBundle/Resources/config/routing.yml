@@ -1,0 +1,504 @@
+admin:
+    path:     /admin
+    defaults: { _controller: MainBundle:Default:admin }
+index:
+    path:     /
+    defaults: { _controller: MainBundle:Default:index }
+    
+assuranceauto:
+    path:     /assuranceauto
+    defaults: { _controller: MainBundle:Default:assuranceauto }
+    
+assurancemoto:
+    path:     /assurancemoto
+    defaults: { _controller: MainBundle:Default:assurancemoto }
+    
+assurancevoyage:
+    path:     /assurancevoyage
+    defaults: { _controller: MainBundle:Default:assurancevoyage }
+    
+contact:
+    path:     /contact
+    defaults: { _controller: MainBundle:Default:contact }
+    
+marque:
+    path:     /marque
+    defaults: { _controller: MainBundle:Marque:listeMarque }
+modifier_marque:
+    path:     /marque/{id}/modifier
+    defaults: { _controller: MainBundle:Marque:modifierMarque }
+    requirements:
+        id: \d+
+supprimer_marque:
+    path:     /marque/{id}/supprimer
+    defaults: { _controller: MainBundle:Marque:supprimerMarque }
+    requirements:
+        id: \d+
+   
+model:
+    path:     /model
+    defaults: { _controller: MainBundle:Modele:listeModel }
+    
+modifier_modele:
+    path:     /model/{id}/modifier
+    defaults: { _controller: MainBundle:Modele:modifierModele }
+    requirements:
+        id: \d+
+        
+supprimer_modele:
+    path:     /model/{id}/supprimer
+    defaults: { _controller: MainBundle:Modele:supprimerModele }
+    requirements:
+        id: \d+
+
+compagnie:
+    path:     /compagnie
+    defaults: { _controller: MainBundle:Compagnie:listeCompagnie }
+    
+modifier_compagnie:
+    path:     /compagnie/{id}/modifier
+    defaults: { _controller: MainBundle:Compagnie:modifierCompagnie }
+    requirements:
+        id: \d+
+        
+supprimer_compagnie:
+    path:     /compagnie/{id}/supprimer
+    defaults: { _controller: MainBundle:Compagnie:supprimerCompagnie }
+    requirements:
+        id: \d+
+    
+categorie_client:
+    path:     /categorie-client
+    defaults: { _controller: MainBundle:CategorieClient:listeCategorieClient }
+   
+modifier_categorie_client:
+    path:     /categorieclient/{id}/modifier
+    defaults: { _controller: MainBundle:CategorieClient:modifierCategorieClient }
+    requirements:
+        id: \d+
+        
+supprimer_categorie_client:
+    path:     /categorieclient/{id}/supprimer
+    defaults: { _controller: MainBundle:CategorieClient:supprimerCategorieClient }
+    requirements:
+        id: \d+
+        
+
+agence:
+    path:     /agence
+    defaults: { _controller: MainBundle:Agence:listeAgence }
+    
+
+modifier_agence:
+    path:     /agence/{id}/modifier
+    defaults: { _controller: MainBundle:Agence:modifierAgence }
+    requirements:
+        id: \d+
+        
+supprimer_agence:
+    path:     /agence/{id}/supprimer
+    defaults: { _controller: MainBundle:Agence:supprimerAgence }
+    requirements:
+        id: \d+
+        
+        
+        
+        
+        
+        
+        
+garantie:
+    path:     /garantie
+    defaults: { _controller: MainBundle:Garantie:listeGarantie }
+    
+
+modifier_garantie:
+    path:     /garantie/{id}/modifier
+    defaults: { _controller: MainBundle:Garantie:modifierGarantie }
+    requirements:
+        id: \d+
+        
+supprimer_garantie:
+    path:     /garantie/{id}/supprimer
+    defaults: { _controller: MainBundle:Garantie:supprimerGarantie }
+    requirements:
+        id: \d+
+        
+        
+
+ville:
+    path:     /ville
+    defaults: { _controller: MainBundle:Ville:ListeVille }
+     
+ajout_ville:
+    path:     /ville
+    defaults: { _controller: MainBundle:Ville:Ajout }
+
+modifier_ville:
+    path:     /ville/{id}/modifier
+    defaults: { _controller: MainBundle:Ville:ModifierVille }
+    requirements:
+        id: \d+
+        
+supprimer_ville:
+    path:     /ville/{id}/supprimer
+    defaults: { _controller: MainBundle:Ville:SupprimerVille }
+    requirements:
+        id: \d+
+        
+        
+        
+
+#tarifgroupement:
+#    path:     /tarifgroupement
+#    defaults: { _controller: MainBundle:TarifGroupement:Liste }
+#    
+#ajout_tarifgroupement:
+#    path:     /tarifgroupement/ajout
+#    defaults: { _controller: MainBundle:TarifGroupement:Ajout }
+#
+#modifier_tarifgroupement:
+#    path:     /tarifgroupement/{id}/modifier
+#    defaults: { _controller: MainBundle:TarifGroupement:Modifier }
+#    requirements:
+#        id: \d+
+#        
+#supprimer_tarifgroupement:
+#    path:     /tarifgroupement/{id}/supprimer
+#    defaults: { _controller: MainBundle:TarifGroupement:Supprimer }
+#    requirements:
+#        id: \d+
+ 
+tarifgroupement:
+    path:     /tarifgroupement
+    defaults: { _controller: MainBundle:TarifGroupement:listetarifGroupement }
+    
+modifier_tarifgroupement:
+    path:     /tarifgroupement/{id}/modifier
+    defaults: { _controller: MainBundle:TarifGroupement:modifiertarifGroupement }
+    requirements:
+        id: \d+
+        
+supprimer_tarifgroupement:
+    path:     /tarifgroupement/{id}/supprimer
+    defaults: { _controller: MainBundle:TarifGroupement:supprimertarifGroupement }
+    requirements:
+        id: \d+
+        
+        
+
+constituer:
+    path:     /constituer
+    defaults: { _controller: MainBundle:Constituer:Liste }
+    
+ajout_constituer:
+    path:     /constituer/ajout
+    defaults: { _controller: MainBundle:Constituer:Ajout }
+
+modifier_constituer:
+    path:     /constituer/{id}/modifier
+    defaults: { _controller: MainBundle:Constituer:Modifier }
+    requirements:
+        id: \d+
+        
+supprimer_constituer:
+    path:     /constituer/{id}/supprimer
+    defaults: { _controller: MainBundle:Constituer:Supprimer }
+    requirements:
+        id: \d+
+        
+        
+        
+
+vehicule:
+    path:     /vehicule
+    defaults: { _controller: MainBundle:Vehicule:Liste }
+    
+ajout_vehicule:
+    path:     /vehicule/ajout
+    defaults: { _controller: MainBundle:Vehicule:Ajout }
+
+modifier_vehicule:
+    path:     /vehicule/{id}/modifier
+    defaults: { _controller: MainBundle:Vehicule:Modifier }
+    requirements:
+        id: \d+
+
+detail_vehicule:
+    path:     /vehicule/{id}/detail
+    defaults: { _controller: MainBundle:Vehicule:Detail }
+    requirements:
+        id: \d+
+        
+supprimer_vehicule:
+    path:     /vehicule/{id}/supprimer
+    defaults: { _controller: MainBundle:Vehicule:Supprimer }
+    requirements:
+        id: \d+
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+client:
+    path:     /client
+    defaults: { _controller: MainBundle:Client:listeClient }
+    
+
+modifier_client:
+    path:     /client/{id}/modifier
+    defaults: { _controller: MainBundle:Client:modifierClient }
+    requirements:
+        id: \d+
+        
+supprimer_client:
+    path:     /client/{id}/supprimer
+    defaults: { _controller: MainBundle:Client:supprimerClient }
+    requirements:
+        id: \d+
+        
+
+type_police_assurance:
+    path:     /typepoliceassurance
+    defaults: { _controller: MainBundle:TypePoliceAssurance:listeTypePoliceAssurance }
+    
+
+modifier_type_police_assurance:
+    path:     /typepoliceassurance/{id}/modifier
+    defaults: { _controller: MainBundle:TypePoliceAssurance:modifierTypePoliceAssurance }
+    requirements:
+        id: \d+
+        
+supprimer_type_police_assurance:
+    path:     /typepoliceassurance/{id}/supprimer
+    defaults: { _controller: MainBundle:TypePoliceAssurance:supprimerTypePoliceAssurance }
+    requirements:
+        id: \d+
+        
+
+categorie_vehicule:
+    path:     /categorievehicule
+    defaults: { _controller: MainBundle:CategorieVehicule:listeCategorieVehicule }
+    
+
+modifier_categorie_vehicule:
+    path:     /categorievehicule/{id}/modifier
+    defaults: { _controller: MainBundle:CategorieVehicule:modifierCategorieVehicule }
+    requirements:
+        id: \d+
+        
+supprimer_categorie_vehicule:
+    path:     /categorievehicule/{id}/supprimer
+    defaults: { _controller: MainBundle:CategorieVehicule:supprimerCategorieVehicule }
+    requirements:
+        id: \d+
+        
+tarifier:
+    path:     /tarifier
+    defaults: { _controller: MainBundle:Tarifier:listeTarifier }
+    
+
+modifier_tarifier:
+    path:     /tarifier/{id}/modifier
+    defaults: { _controller: MainBundle:Tarifier:modifierTarifier }
+    requirements:
+        id: \d+
+        
+supprimer_tarifier:
+    path:     /tarifier/{id}/supprimer
+    defaults: { _controller: MainBundle:Tarifier:supprimerTarifier }
+    requirements:
+        id: \d+
+        
+        
+
+type_assurance:
+    path:     /typeassurance
+    defaults: { _controller: MainBundle:TypeAssurance:listeTypeAssurance }
+    
+
+modifier_type_assurance:
+    path:     /typeassurance/{id}/modifier
+    defaults: { _controller: MainBundle:TypeAssurance:modifierTypeAssurance }
+    requirements:
+        id: \d+
+        
+supprimer_type_assurance:
+    path:     /typeassurance/{id}/supprimer
+    defaults: { _controller: MainBundle:TypeAssurance:supprimerTypeAssurance }
+    requirements:
+        id: \d+
+        
+zonecirculation:
+    path:     /zonecirculation
+    defaults: { _controller: MainBundle:ZoneCirculation:listeZoneCirculation }
+    
+modifier_zonecirculation:
+    path:     /zonecirculation/{id}/modifier
+    defaults: { _controller: MainBundle:ZoneCirculation:modifierZoneCirculation }
+    requirements:
+        id: \d+
+        
+supprimer_zonecirculation:
+    path:     /zonecirculation/{id}/supprimer
+    defaults: { _controller: MainBundle:ZoneCirculation:supprimerZoneCirculation }
+    requirements:
+        id: \d+
+        
+statut:
+    path:     /statut
+    defaults: { _controller: MainBundle:Statut:listeStatut }
+    
+modifier_statut:
+    path:     /statut/{id}/modifier
+    defaults: { _controller: MainBundle:Statut:modifierStatut }
+    requirements:
+        id: \d+
+        
+supprimer_statut:
+    path:     /statut/{id}/supprimer
+    defaults: { _controller: MainBundle:Statut:supprimerStatut }
+    requirements:
+        id: \d+
+        
+tarifflotte:
+    path:     /tarifflotte
+    defaults: { _controller: MainBundle:TarifFlotte:listeTarifFlotte }
+    
+modifier_tarifflotte:
+    path:     /tarifflotte/{id}/modifier
+    defaults: { _controller: MainBundle:TarifFlotte:modifierTarifFlotte }
+    requirements:
+        id: \d+
+        
+supprimer_tarifflotte:
+    path:     /tarifflotte/{id}/supprimer
+    defaults: { _controller: MainBundle:TarifFlotte:supprimerTarifFlotte }
+    requirements:
+        id: \d+
+
+classeconducteur:
+    path:     /classeconducteur
+    defaults: { _controller: MainBundle:ClasseConducteur:listeClasseConducteur}
+    
+modifier_classeconducteur:
+    path:     /classeconducteur/{id}/modifier
+    defaults: { _controller: MainBundle:ClasseConducteur:modifierClasseConducteur }
+    requirements:
+        id: \d+
+        
+supprimer_classeconducteur:
+    path:     /classeconducteur/{id}/supprimer
+    defaults: { _controller: MainBundle:ClasseConducteur:supprimerClasseConducteur }
+    requirements:
+        id: \d+
+        
+puissancefiscale:
+    path:     /puissancefiscale
+    defaults: { _controller: MainBundle:PuissanceFiscale:listePuissanceFiscale}
+    
+modifier_puissancefiscale:
+    path:     /puissancefiscale/{id}/modifier
+    defaults: { _controller: MainBundle:PuissanceFiscale:modifierPuissanceFiscale }
+    requirements:
+        id: \d+
+        
+supprimer_puissancefiscale:
+    path:     /puissancefiscale/{id}/supprimer
+    defaults: { _controller: MainBundle:PuissanceFiscale:supprimerPuissanceFiscale }
+    requirements:
+        id: \d+      
+
+
+
+police_assurance:
+    path:     /policeassurance
+    defaults: { _controller: MainBundle:PoliceAssurance:listePoliceAssurance }
+   
+modifier_police_assurance:
+    path:     /policeassurance/{id}/modifier
+    defaults: { _controller: MainBundle:PoliceAssurance:modifierPoliceAssurance }
+    requirements:
+        id: \d+
+        
+supprimer_police_assurance:
+    path:     /policeassurance/{id}/supprimer
+    defaults: { _controller: MainBundle:PoliceAssurance:supprimerPoliceAssurance }
+    requirements:
+        id: \d+
+        
+        
+garantir:
+    path:     /garantir
+    defaults: { _controller: MainBundle:Garantir:listeGarantir }
+   
+modifier_garantir:
+    path:     /garantir/{id}/modifier
+    defaults: { _controller: MainBundle:Garantir:modifierGarantir }
+    requirements:
+        id: \d+
+        
+supprimer_garantir:
+    path:     /garantir/{id}/supprimer
+    defaults: { _controller: MainBundle:Garantir:supprimerGarantir }
+    requirements:
+        id: \d+
+        
+lister:
+    path:     /lister
+    defaults: { _controller: MainBundle:Lister:listeLister }
+   
+modifier_lister:
+    path:     /lister/{id}/modifier
+    defaults: { _controller: MainBundle:Lister:modifierLister }
+    requirements:
+        id: \d+
+        
+supprimer_lister:
+    path:     /lister/{id}/supprimer
+    defaults: { _controller: MainBundle:Lister:supprimerLister }
+    requirements:
+        id: \d+
+        
+        
+tarif_assurance_temporaire:
+    path:     /tarifassurancetemporaire
+    defaults: { _controller: MainBundle:TarifAssuranceTemporaire:listeTarifAssuranceTemporaire }
+   
+modifier_tarif_assurance_temporaire:
+    path:     /tarifassurancetemporaire/{id}/modifier
+    defaults: { _controller: MainBundle:TarifAssuranceTemporaire:modifierTarifAssuranceTemporaire }
+    requirements:
+        id: \d+
+        
+supprimer_tarif_assurance_temporaire:
+    path:     /tarifassurancetemporaire/{id}/supprimer
+    defaults: { _controller: MainBundle:TarifAssuranceTemporaire:supprimerTarifAssuranceTemporaire }
+    requirements:
+        id: \d+
+        
+        
+taux_assurance_temporaire:
+    path:     /tauxassurancetemporaire
+    defaults: { _controller: MainBundle:TauxAssuranceTemporaire:listeTauxAssuranceTemporaire }
+   
+modifier_taux_assurance_temporaire:
+    path:     /tauxassurancetemporaire/{id}/modifier
+    defaults: { _controller: MainBundle:TauxAssuranceTemporaire:modifierTauxAssuranceTemporaire }
+    requirements:
+        id: \d+
+        
+supprimer_taux_assurance_temporaire:
+    path:     /tauxassurancetemporaire/{id}/supprimer
+    defaults: { _controller: MainBundle:TauxAssuranceTemporaire:supprimerTauxAssuranceTemporaire }
+    requirements:
+        id: \d+

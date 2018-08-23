@@ -1,0 +1,308 @@
+<!DOCTYPE html> 
+<html lang="fr"> 
+<head> 
+<title>ReflexAssur - Administration</title> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="{{asset('bundles/bootstrap-3.2.0-dist/css/bootstrap.css')}}"> 
+<script src="{{asset('bundles/bootstrap-3.2.0-dist/js/jquery-1.10.2.js')}}"></script> 
+<script src="{{asset('bundles/bootstrap-3.2.0-dist/js/bootstrap.js')}}"></script> 
+<link rel="icon" type="image/x-icon" href="{{asset('bundles/ramain/images//favicon.ico')}}" />
+<style>
+
+@media (min-width: 768px){
+  .affix-content .container {
+    width: 700px;
+  }   
+
+  html,body{
+    background-color: #f8f8f8;
+    height: 100%;
+    overflow: hidden;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .sidebar-nav{
+        position:fixed; 
+        width:100%;
+  }
+  .affix-sidebar{
+    padding-right:0; 
+    font-size:small;
+    padding-left: 0;
+  }  
+  .affix-row, .affix-container, .affix-content{
+    height: 100%;
+    margin-left: 0;
+    margin-right: 0;    
+  } 
+  .affix-content{
+    background-color:white; 
+  } 
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar{
+    border-radius:0; 
+    margin-bottom:0; 
+    border:0;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }  
+}
+
+@media (min-width: 769px){
+  .affix-content .container {
+    width: 600px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }  
+}
+
+@media (min-width: 992px){
+  .affix-content .container {
+  width: 900px;
+  }
+    .affix-content .container .page-header{
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1220px){
+  .affix-row{
+    overflow: hidden;
+  }
+
+  .affix-content{
+    overflow: auto;
+  }
+
+  .affix-content .container {
+    width: 1000px;
+  }
+
+  .affix-content .container .page-header{
+    margin-top: 0;
+  }
+  .affix-content{
+    padding-right: 30px;
+    padding-left: 30px;
+  }  
+  .affix-title{
+    border-bottom: 1px solid #ecf0f1; 
+    padding-bottom:10px;
+  }
+  .navbar-nav {
+    margin: 0;
+  }
+  .navbar-collapse{
+    padding: 0;
+  }
+  .sidebar-nav .navbar li a:hover {
+    background-color: #428bca;
+    color: white;
+  }
+  .sidebar-nav .navbar li a > .caret {
+    margin-top: 8px;
+  }  
+}
+
+</style>
+
+</head>
+
+<body >
+<div class="panel-primary" style="background-color:#F6BB42;">
+  <div class="panel-body">
+  <div class="col-md-8">
+    <h2 style="color:white;"> <img style="margin-right:10px; width: 40px; height: 40px;" alt="ReflexAssur Logo" src="{{asset('bundles/ramain/images//favicon.ico')}}" /> 
+        ReflexAssur </h2>
+    </div>
+	<div class="col-md-4">
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="glyphicon glyphicon-user"></span>  Nom Administrateur <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Se déconnecter</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Voir Profil</a></li>
+  </ul>
+</div>
+	<button type="button"  class="btn btn-primary navbar-btn"> <a href="{{path('index')}}" style="color:white;"> <span class="glyphicon glyphicon-home"></span>  Accueil ReflexAssur </a></button>
+	</div>
+  </div>
+</div>
+ <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav main-menu">
+                <li class="text-center">
+                    <img src="{{ asset('assets/img/logo-pdf.png') }}" class="user-image img-responsive"/>
+                </li>
+            </ul>
+            {% block navbar %}{% endblock %}
+        </div>
+    </nav>
+<div class="row affix-row">
+    <div class="col-sm-3 col-md-2 affix-sidebar">
+		<div class="sidebar-nav">
+  <div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <span class="visible-xs navbar-brand">Menu Administration</span>
+    </div>
+    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+      <ul class="nav navbar-nav" id="sidenav01">
+        <li class="active">
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo0" data-parent="#sidenav01" class="collapsed">
+          <h4 style="font-weight:bold;">
+              ADMINISTRATION
+          <br><br>
+          <small><span class="glyphicon glyphicon-cog"></span> PARAMETRES GENERAUX <span class="caret"></span></small>
+          </h4>
+          </a>
+          <div class="collapse" id="toggleDemo0" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a href="{{path('ville')}}" style="font-size: 16px;">Ville</a></li>
+              <li><a href="{{path('zonecirculation')}}" style="font-size: 16px;">Zone de Circulation</a></li>
+              <li><a href="{{path('statut')}}" style="font-size: 16px;">Statut Socio Professionnel</a></li>
+              <li><a href="{{path('type_assurance')}}" style="font-size: 16px;">Type Assurance</a></li>
+            </ul>
+          </div>
+        </li>
+        <li {% block categorie %}class="active"{% endblock %}>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-th" style="margin-right:10px;"></span> CATEGORIES 
+          </a>
+          <div class="collapse" id="toggleDemo" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a href="{{path('categorie_client')}}" style="font-size: 16px;">Client</a></li>
+              <li><a href="{{path('categorie_vehicule')}}" style="font-size: 16px;">Véhicule</a></li>
+            </ul>
+          </div>
+        </li>
+        <li {% block tarif %}class="active"{% endblock %}>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo2" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-briefcase" style="margin-right:10px;"></span> TARIFS 
+          </a>
+          <div class="collapse" id="toggleDemo2" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a href="{{path('tarif_assurance_temporaire')}}" style="font-size: 16px;">Tarif Assurance Temporaire</a></li>
+              <li><a href="{{path('tarifflotte')}}" style="font-size: 16px;">Tarif Flotte</a></li>
+              <li><a href="{{path('tarifgroupement')}}" style="font-size: 16px;">Tarif Groupement</a></li>
+            </ul>
+          </div>
+        </li>
+         <li {% block assurance %}class="active"{% endblock %}>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo3" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-road" style="margin-right:10px;"></span> ASSURANCES 
+          </a>
+          <div class="collapse" id="toggleDemo3" style="height: 0px;">
+            <ul class="nav nav-list">
+               <li><a href="{{path('compagnie')}}" style="font-size: 16px;">Compagnie</a></li>
+               <li><a href="{{path('agence')}}" style="font-size: 16px;">Agence</a></li>
+                <li><a href="{{path('client')}}" style="font-size: 16px;">Client</a></li>
+                <li><a href="{{path('type_police_assurance')}}" style="font-size: 16px;"> Type Police Assurance</a></li>
+                <li><a href="{{path('police_assurance')}}" style="font-size: 16px;">Police Assurance</a></li>
+                <li><a href="{{path('puissancefiscale')}}" style="font-size: 16px;">Puissance Fiscale</a></li>
+                <li><a href="{{path('taux_assurance_temporaire')}}" style="font-size: 16px;">Taux Assurance Temporaire</a></li>
+                <li><a href="{{path('garantie')}}" style="font-size: 16px;">Garantie</a></li>
+            </ul>
+            </div>
+              </li>
+              <li {% block automobile %}class="active"{% endblock %}>
+                <a href="#" data-toggle="collapse" data-target="#toggleDemo4" data-parent="#sidenav01" class="collapsed">
+                <span class="glyphicon glyphicon glyphicon-road"  style="margin-right:10px;"></span> AUTOMOBILE 
+                </a>
+                <div class="collapse" id="toggleDemo4" style="height: 0px;">
+                  <ul class="nav nav-list">
+                    <li><a href="{{path('classeconducteur')}}" style="font-size: 16px;">Classes Conducteur</a></li>
+                    <li><a href="{{path('marque')}}" style="font-size: 16px;">Marque</a></li>
+                    <li><a href="{{path('model')}}" style="font-size: 16px;">Modele</a></li>
+                    <li><a href="{{path('vehicule')}}" style="font-size: 16px;">Véhicule</a></li>
+                  </ul>
+                </div>
+              </li>
+            
+        
+         <li {% block action %}class="active"{% endblock %}>
+          <a href="#" data-toggle="collapse" data-target="#toggleDemo5" data-parent="#sidenav01" class="collapsed">
+          <span class="glyphicon glyphicon-tags"  style="margin-right:10px;"></span> AUTRES ACTIONS 
+          </a>
+          <div class="collapse" id="toggleDemo5" style="height: 0px;">
+            <ul class="nav nav-list">
+              <li><a href="{{path('constituer')}}" style="font-size: 16px;">Constituer</a></li>
+              <li><a href="{{path('garantir')}}" style="font-size: 16px;">Garantir</a></li>
+              <li><a href="{{path('lister')}}" style="font-size: 16px;">Lister</a></li>
+              <li><a href="{{path('tarifier')}}" style="font-size: 16px;">Tarifier</a></li>
+            </ul>
+          </div>
+        </li>
+       
+      
+      </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+	</div>
+	<div class="col-sm-9 col-md-10 affix-content">
+            <div class="container">
+	{% block home %}
+            
+                <div class="page-header">
+                        <h3><span class="glyphicon glyphicon-th-list"></span>{% block titre %}  Administration {% endblock %}</h3>
+                </div>
+                {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    {%if type=="success"%}
+                        <div data-alert class="alert alert-success alert-dismissable" id="flash-msg">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>Succès!</h4>
+                            <p>{{ message }}</p>
+                        </div>
+                    {%elseif type=="error"%}
+                        <div data-alert class="alert alert-danger alert-dismissable" id="flash-msg">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>Erreur!</h4>
+                            <p>{{ message }}</p>
+                        </div>
+                    {%else%}
+                        <div data-alert class="alert alert-info alert-dismissable" id="flash-msg">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>Info!</h4>
+                            <p>{{ message }}</p>
+                        </div>
+                    {%endif%}
+                {% endfor %}
+            {% endfor %}
+        {% endblock %}
+	</div>
+    </div>
+</div>
+
+
+<footer> 
+	<hr> 
+	<p>Copyright ReflexAssur 2017</p>  
+</footer> 
+
+</body> 
+</html>

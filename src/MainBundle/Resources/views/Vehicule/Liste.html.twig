@@ -1,0 +1,70 @@
+{% extends '::base_admin.html.twig' %}
+{% block home %}
+    {{parent()}}
+    {% block categorie %}{% endblock %}
+    {% block tarif %}{% endblock %}
+    {% block assurance %}{% endblock %}
+    {% block action %}{% endblock %}
+    {% block titre %} Liste des véhicules{% endblock %}
+    <div align='center'>
+        <div id="partner" class="container-fluid no-padding partner" style="background-color: white;">
+            <div class="container" style="background-color: white; padding: 25px 25px;">
+               
+                 <div>
+                    <!--<h4 style="font-weight:bold; color: #002a80;"> Liste</h4> -->
+                    <a href="{{ path('ajout_vehicule') }}">Ajouter un nouveau véhicule</a>
+                 </div>
+                 <br/>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%">N°</th>
+                            <th style="width: 15%">Catégorie</th>
+                            <th style="width: 15%">Modèle</th>
+                            <th style="width: 15%">Immatriculation</th>
+                            <th style="width: 15%">Numéro Chassis</th>
+                            <th style="width: 15%;text-align:right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for a in liste%}
+                            <tr>
+                                <td style='text-align: left'>{{loop.index}}</td>
+                                <td style='text-align: left'>{{a.CategorieVehicule.libelle}}</td>
+                                <td style='text-align: left'>{{a.Modele.nomComplet}}</td>
+                                <td style='text-align: left'>{{a.Numimmat}}</td>
+                                <td style='text-align: left'>{{a.numChassis}}</td>
+                                <td style="text-align:right;">
+                                        <a href="{{path('modifier_vehicule', {'id': a.id})}}" class="btn btn-default" title="Modifier"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a data-toggle="modal" href="#supprimer-entreprise{{a.id}}" class="btn btn-default" title="Supprimer"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <div class="modal" id="supprimer-entreprise{{a.id}}" style="margin-top: 60px">
+                                            <div class="modal-dialog" style="max-width: 400px">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                        <h4 class="modal-title" style="text-align: center">Confirmer la suppression</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p style="text-align: center; font-size:15px;">Voulez vous vraiment supprimer ce véhicule?</p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="{{path('supprimer_vehicule', {'id': a.id})}}" class="btn btn-danger">Supprimer</a>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="{{path('detail_vehicule', {'id': a.id})}}" class="btn btn-default" title="Détail"><i class="glyphicon glyphicon-list"></i></a>
+                                    </td>
+                            </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        
+ {% endblock %}
+
+
